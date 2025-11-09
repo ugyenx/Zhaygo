@@ -11,7 +11,7 @@ import Restaurant from "./components/Restaurant";
 
 const App = () => {
   return (
-    <div className="relative min-h-screen mx-50 mt-10">
+    <div className="relative min-h-screen mx-50 mt-10 font-body">
       <BlurredBackground />
       <Header />
       <Outlet />

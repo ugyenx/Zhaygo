@@ -8,12 +8,12 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between pb-10">
       <div className="logo-container">
-        <h1 className="text-3xl font-bold">
+        <h1 className="text-3xl font-bold tracking-wider">
           ZH<span className="text-(--lapis-lazuli)">AYGO</span>
         </h1>
       </div>
       <div className="flex">
-        <ul className="flex gap-20  font-semibold pt-2 ">
+        <ul className="flex gap-20 pt-2 font-medium tracking-wider">
           {/* <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li> */}
           <li className="transition-transform  duration-300 hover:-translate-y-2">
             <Link to="/" className="linker">
@@ -43,7 +43,7 @@ const Navbar = () => {
           <FiShoppingCart size={22} />
         </div>
         <button
-          className="font-bold border-2 border-(--light-green) px-3 pb-1 rounded-lg transition-transform  duration-300 hover:-translate-y-2 hover:shadow-lg"
+          className="font-bold border-2 border-(--light-green) px-4 py-1 rounded-lg transition-transform  duration-300 hover:-translate-y-2 hover:shadow-lg"
           onClick={() => {
             btnName === "Login" ? setbtnName("Logout") : setbtnName("Login");
           }}
