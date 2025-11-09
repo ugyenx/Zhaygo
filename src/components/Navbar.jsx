@@ -13,25 +13,25 @@ const Navbar = () => {
         </h1>
       </div>
       <div className="flex">
-        <ul className="flex gap-20 pt-2 font-medium tracking-wider">
+        <ul className="flex gap-2  font-medium tracking-wider">
           {/* <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li> */}
-          <li className="transition-transform  duration-300 hover:-translate-y-2">
+          <li className="glow-border px-4 py-1 transition-transform  duration-300 hover:-translate-y-2">
             <Link to="/" className="linker">
               Home
             </Link>
           </li>
-          <li className="transition-transform  duration-300 hover:-translate-y-2">
+          <li className="glow-border px-4 py-1 transition-transform  duration-300 hover:-translate-y-2">
             <Link to="/restaurant" className="linker">
               Restaurant
             </Link>
           </li>
-          <li className="transition-transform  duration-300 hover:-translate-y-2">
+          <li className="glow-border px-4 py-1 transition-transform  duration-300 hover:-translate-y-2">
             <Link to="/about" className="linker">
               About US
             </Link>
           </li>
 
-          <li className="transition-transform  duration-300 hover:-translate-y-2">
+          <li className="glow-border px-4 py-1 transition-transform  duration-300 hover:-translate-y-2">
             <Link to="/contact" className="linker">
               Contact
             </Link>

@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
 @import "tailwindcss";
 /* CSS HEX */
 @theme {
@@ -8,6 +10,9 @@
   --emerald: #57cc99ff;
   --verdigris: #38a3a5ff;
   --font-body: "Stack Sans Text", sans-serif;
+  --font-fasi: "Fascinate", system-ui;
+  --font-cali: "Knewave", system-ui;
+  /* --border-angle': "360deg"; */
 }
 @keyframes blob {
   0% {
@@ -42,4 +47,58 @@
 
 .animation-delay-8000 {
   animation-delay: 8s;
+}
+/* 🟩 Base container styling enhancement */
+.glow-border {
+  position: relative; /* needed so ::before stays inside */
+  overflow: hidden; /* hides the glowing overflow edges */
+  border-radius: 1.5rem;
+}
+
+/* 🟦 The animated glowing border layer */
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* covers the whole element */
+  padding: 3px; /* border thickness */
+  border-radius: inherit; /* matches parent’s rounded corners */
+
+  /* 🎨 Gradient background (animated colors) */
+  background: linear-gradient(
+    45deg,
+    #00ff87,
+    #60efff,
+    #ff6ec4,
+    #a1ffce,
+    #00ff87
+  );
+  background-size: 300% 300%; /* makes the gradient larger so movement is visible */
+
+  /* ✨ The animation itself */
+  animation: glow 5s ease infinite;
+
+  /* 🎭 Mask trick to make only the border visible */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  /* ensures the glow doesn't block clicks or hover */
+  pointer-events: none;
+
+  /* Optional soft outer glow */
+  box-shadow: 0 0 20px rgba(0, 255, 135, 0.5);
+  z-index: 0;
+}
+
+/* 🟨 The moving gradient animation */
+@keyframes glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

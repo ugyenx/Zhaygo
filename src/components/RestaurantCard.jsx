@@ -11,12 +11,12 @@ const RestaurantCard = (props) => {
     cloudinaryImageId,
   } = restData?.info;
   return (
-    <div className="bg-(--tea-green) flex   flex-col mb-10 flex-wrap w-70 h-70 border border-(--light-green) rounded-xl transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg">
-      <div className="w-70 pr-0.5">
+    <div className="glow-border bg-(--tea-green) flex  flex-col mb-10 flex-wrap w-70 h-70  transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg ">
+      <div className="w-70 ">
         <img
           src={CDN_URL + cloudinaryImageId}
           alt=""
-          className="w-full h-40 object-cover rounded-t-xl "
+          className="w-full h-40 object-cover rounded-t-3xl"
         />
       </div>
       <div className="px-6 py-3 flex  flex-col gap-0.5">
