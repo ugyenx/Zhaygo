@@ -11,15 +11,15 @@ const RestaurantCard = (props) => {
     cloudinaryImageId,
   } = restData?.info;
   return (
-    <div className="bg-red-300 flex flex-col mb-10 flex-wrap w-70 h-80">
-      <div className="w-70">
+    <div className="bg-(--tea-green) flex flex-col mb-10 flex-wrap w-70 h-80 border border-(--light-green) rounded-xl">
+      <div className="w-70 pr-0.5">
         <img
           src={CDN_URL + cloudinaryImageId}
           alt=""
-          className="w-full h-40 object-cover "
+          className="w-full h-40 object-cover rounded-t-xl "
         />
       </div>
-      <div className="restaurant-details">
+      <div className="px-5 scale-70">
         <h3 className="name">{name}</h3>
         <h6 className=" cuisines">{cuisines.join(", ")}</h6>
         <h4 className="cost">{costForTwo}</h4>
