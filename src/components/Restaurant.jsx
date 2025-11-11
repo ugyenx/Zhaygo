@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import useOnlineStatus from "../hooks/useOnlineStatus";
 import useFectchResto from "../hooks/useFectchResto";
 const Restaurant = () => {
   const [searchText, setsearchText] = useState("");
-
+  const PromotedRestCard = withPromotedLabel(RestaurantCard);
   const restObject = useFectchResto();
   const restaurants =
     restObject?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -67,7 +67,12 @@ const Restaurant = () => {
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}
           >
-            <RestaurantCard restData={restaurant} />
+            {" "}
+            {restaurant.info.isOpen ? (
+              <PromotedRestCard restData={restaurant} />
+            ) : (
+              <RestaurantCard restData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

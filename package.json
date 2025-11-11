@@ -1,6 +1,7 @@
 {
   "name": "zhaygo",
   "version": "1.0.0",
+  "type": "module",
   "description": "practice-project",
   "scripts": {
     "start": "npx parcel index.html",
