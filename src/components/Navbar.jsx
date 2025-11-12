@@ -1,10 +1,14 @@
 import { FiShoppingCart } from "react-icons/fi";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const { LoggedInUser } = useContext(UserContext);
   const [btnName, setbtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <nav className="flex justify-between pb-10">
       <div className="logo-container">
@@ -39,17 +43,21 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="flex justify-center items-center gap-3 ">
-        <div className="text-(--verdigris) pr-2 transition-transform  duration-300 hover:-translate-y-2 hover:shadow-lg">
+        <div className=" flex  gap-2 text-(--verdigris) pr-2 transition-transform  duration-300 hover:-translate-y-2 hover:shadow-lg">
           <FiShoppingCart size={22} />
+          <p>{cartItems.length}</p>
         </div>
-        <button
-          className="font-bold border-2 border-(--light-green) px-4 py-1 rounded-lg transition-transform  duration-300 hover:-translate-y-2 hover:shadow-lg"
-          onClick={() => {
-            btnName === "Login" ? setbtnName("Logout") : setbtnName("Login");
-          }}
-        >
-          {btnName}
-        </button>
+        <Link to="/login">
+          <button
+            className="font-bold border-2 border-(--light-green) px-4 py-1 rounded-lg transition-transform  duration-300 hover:-translate-y-2 hover:shadow-lg"
+            onClick={() => {
+              btnName === "Login" ? setbtnName("Logout") : setbtnName("Login");
+            }}
+          >
+            {btnName}
+          </button>
+        </Link>
+        <p>{LoggedInUser}</p>
       </div>
     </nav>
   );

@@ -1,12 +1,8 @@
 import { MENU_URL } from "../utils/constants";
 import { TbShoppingCartCopy } from "react-icons/tb";
 const MenuCard = ({ items }) => {
-  // const { name, price, imageId, description, defaultPrice } = items?.card.info;
-  // const { rating, ratingCountV2 } =
-  //   items?.card.info?.ratings?.aggregatedRating || {};
-  console.log(items);
   return (
-    <div className="flex flex-wrap gap-5 justify-center">
+    <div className="flex flex-wrap gap-5 justify-center mt-15">
       {items.map((item) => (
         <div
           key={item.card.info.id}

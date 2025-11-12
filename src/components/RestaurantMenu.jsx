@@ -6,6 +6,8 @@ import RestaurantCategory from "./RestaurantCategory";
 
 const RestuarantMenu = () => {
   const { restId } = useParams();
+  const [showIndex, setshowIndex] = useState(0);
+
   useMenuFetch(restId);
   const restInfo = useMenuFetch(restId);
   if (restInfo === null) return <Shimmer />;
@@ -20,19 +22,13 @@ const RestuarantMenu = () => {
   const { deliveryTime, minDeliveryTime, maxDeliveryTime } =
     restInfo?.cards[2]?.card?.card?.info?.sla;
 
-  // const regularCards =
-  //   restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
   const categories =
     restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log(categories);
-  // const menuCard = regularCards.find((c) => c.card?.card?.itemCards);
 
-  // const itemCards = menuCard?.card?.card?.itemCards || [];
-  // console.log(itemCards);
   return (
     <div className="flex flex-col mx-50">
       <div className="glow-border flex  justify-around items-center bg-slate-900/10 p-10  mb-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg">
@@ -53,9 +49,15 @@ const RestuarantMenu = () => {
         </div>
       </div>
       <div className="">
-        {categories.map((category) => (
+        {categories.map((category, index) => (
           <div key={category.card.card.categoryId} className="">
-            <RestaurantCategory data={category.card.card} />
+            <RestaurantCategory
+              data={category.card.card}
+              showItem={index === showIndex ? true : false}
+              setshowIndex={() =>
+                setshowIndex(index === showIndex ? null : index)
+              }
+            />
           </div>
         ))}
       </div>
