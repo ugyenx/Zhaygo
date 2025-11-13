@@ -2,7 +2,6 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Navbar";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./pages/About";
-import Cart from "./components/Cart";
 import Home from "./pages/Home";
 import Error from "./components/Error";
 import RestuarantMenu from "./components/RestaurantMenu";
@@ -13,6 +12,7 @@ import { useContext, useEffect, useState } from "react";
 import Login from "./pages/Login";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./pages/Cart";
 const App = () => {
   const [userName, setuserName] = useState();
   const { LoggedInUser } = useContext(UserContext);

@@ -1,6 +1,12 @@
 import { MENU_URL } from "../utils/constants";
 import { TbShoppingCartCopy } from "react-icons/tb";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 const MenuCard = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div className="flex flex-wrap gap-5 justify-center mt-15">
       {items.map((item) => (
@@ -23,7 +29,10 @@ const MenuCard = ({ items }) => {
               </div>
 
               <div className="absolute -top-13 left-42 text-white bg-black p-2 rounded-t-xl rounded-bl-lg rounded-br-4xl">
-                <TbShoppingCartCopy size={22} />
+                <TbShoppingCartCopy
+                  size={22}
+                  onClick={() => handleAddItem(item)}
+                />
               </div>
             </div>
             <div className="bg-slate-900/20  rounded-3xl pt-15 h-55 w-60 px-4  flex flex-col  justify-center items-center border-3 border-slate-300 hover:shadow-lg">
