@@ -1,3 +1,4 @@
+import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";

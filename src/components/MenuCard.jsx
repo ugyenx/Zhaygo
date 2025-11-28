@@ -1,3 +1,4 @@
+import React from "react";
 import { MENU_URL } from "../utils/constants";
 import { TbShoppingCartCopy } from "react-icons/tb";
 import { useDispatch } from "react-redux";
